@@ -26,8 +26,6 @@ public class AudioSystem : IDisposable
 
         _outputDevice = new WaveOutEvent();
         _outputDevice.DesiredLatency = 50;
-        _outputDevice.Init(_mixer);
-        _outputDevice.Play();
     }
     
     public void PlaySound(ISampleProvider sampleProvider)

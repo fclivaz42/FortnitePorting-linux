@@ -61,6 +61,8 @@ public partial class SettingsService : ObservableObject, IService
     {
         try
         {
+			if (!FilePath.Exists)
+				FilePath.Create();
             File.WriteAllText(FilePath.FullName, JsonConvert.SerializeObject(this, Formatting.Indented));
         }
         catch (Exception e)

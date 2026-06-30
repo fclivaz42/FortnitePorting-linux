@@ -288,14 +288,6 @@ public partial class CUE4ParseService : ObservableObject, IService, IResettable
         await ZlibHelper.InitializeAsync(zlibPath);
     }
     
-    [LoadingStage("Loading Detex", stage: 5, weight: 1)]
-    private async Task InitializeDetex()
-    {
-        var detexPath = Path.Combine(App.DataFolder.FullName, DetexHelper.DLL_NAME);
-        if (!File.Exists(detexPath)) await DetexHelper.LoadDllAsync(detexPath);
-        DetexHelper.Initialize(detexPath);
-    }
-    
     [LoadingStage("Initializing Provider", stage: 6, weight: 10)]
     private async Task InitializeProvider()
     {

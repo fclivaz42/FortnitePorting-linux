@@ -75,21 +75,6 @@
                 </controls:SettingsItem.Footer>
             </controls:SettingsItem>
             
-            <controls:SettingsItem Title="Audio Device" Description="The device that should be used for audio playback.">
-                <controls:SettingsItem.Footer>
-                    <ComboBox ItemsSource="{Binding AudioDevices}" 
-                              SelectedIndex="{Binding AudioDeviceIndex, Mode=TwoWay}"
-                              HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate DataType="wave:DirectSoundDeviceInfo">
-                                <TextBlock Text="{Binding Description}"/>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-
-                </controls:SettingsItem.Footer>
-            </controls:SettingsItem>
-            
             <controls:SettingsItem Title="Tab Transitions" Description="Toggles the transition that plays when switching between tabs.">
                 <controls:SettingsItem.Footer>
                     <ToggleSwitch IsChecked="{Binding UseTabTransitions}"/>

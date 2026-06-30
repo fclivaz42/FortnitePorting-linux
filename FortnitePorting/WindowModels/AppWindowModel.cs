@@ -107,23 +107,6 @@ public partial class AppWindowModel(
 
     public async Task CheckForUpdate()
     {
-        var repositoryInfo = await Api.FortnitePorting.Repository();
-        var newestVersion = repositoryInfo?.Versions.MaxBy(version => version.UploadTime);
-        if (newestVersion is null || newestVersion.Version <= Globals.Version) return;
-        
-        UpdateVersion = newestVersion;
-
-        if (DateTime.Today > newestVersion.UploadTime.AddDays(6))
-        {
-            var outOfDateDays = DateTime.Today - newestVersion.UploadTime;
-            Info.Dialog($"Update {newestVersion.Version}", $"Your Fortnite Porting is {outOfDateDays.Days} days out of date, please consider updating.", buttons: [
-                new DialogButton
-                {
-                    Text = "Update",
-                    Action = () => TaskService.Run(Update)
-                }
-            ]);
-        }
     }
 
 }

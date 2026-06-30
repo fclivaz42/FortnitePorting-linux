@@ -1,6 +1,6 @@
 [submodule "Dependencies/CUE4Parse"]
 	path = Dependencies/CUE4Parse
-	url = https://github.com/h4lfheart/CUE4Parse
+	url = https://github.com/fclivaz42/CUE4Parse-linux
 [submodule "Dependencies/FluentAvalonia.BreadcrumbBar"]
 	path = Dependencies/FluentAvalonia.BreadcrumbBar
 	url = https://github.com/h4lfheart/FluentAvalonia.BreadcrumbBar

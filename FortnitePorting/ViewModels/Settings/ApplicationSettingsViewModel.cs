@@ -20,7 +20,6 @@ using FortnitePorting.Models.Radio;
 using FortnitePorting.Shared.Extensions;
 using FortnitePorting.Validators;
 using FortnitePorting.Windows;
-using NAudio.Wave;
 using Newtonsoft.Json;
 
 namespace FortnitePorting.ViewModels.Settings;
@@ -66,8 +65,6 @@ public partial class ApplicationSettingsViewModel : SettingsViewModelBase
     
     public string AssetPath => UseAssetsPath && Directory.Exists(AssetsPath) ? AssetsPath : App.AssetsFolder.FullName;
     
-    [JsonIgnore]
-    public DirectSoundDeviceInfo[] AudioDevices => DirectSoundOut.Devices.ToArray()[1..];
 
     [JsonIgnore]
     public EExportType[] AssetTypes => Enum.GetValues<EExportType>().Where(type => !type.IsDisabled && type.IsAssetType).ToArray();

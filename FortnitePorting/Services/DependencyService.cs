@@ -12,7 +12,7 @@ public class DependencyService : IService
     
     public readonly FileInfo BinkaDecoderFile = new(Path.Combine(App.DataFolder.FullName, "binka", "binkadec.exe"));
     public readonly FileInfo RadaDecoderFile = new(Path.Combine(App.DataFolder.FullName, "rada", "radadec.exe"));
-    public readonly FileInfo NoodleFile = new(Path.Combine(App.DataFolder.FullName, "noodle.dll"));
+    public readonly FileInfo NoodleFile = new(Path.Combine(App.DataFolder.FullName, "libnoodle.so"));
     public readonly FileInfo VgmStreamFile = new(Path.Combine(App.DataFolder.FullName, "vgmstream", "vgmstream-cli.exe"));
     
     public readonly DirectoryInfo VgmStreamFolder = new(Path.Combine(App.DataFolder.FullName, "vgmstream"));
@@ -21,7 +21,7 @@ public class DependencyService : IService
     {
         TaskService.Run(() =>
         {
-            EnsureResource("Assets/Dependencies/noodle.dll", NoodleFile);
+            EnsureResource("Assets/Dependencies/libnoodle.so", NoodleFile);
             EnsureResource("Assets/Dependencies/binkadec.exe", BinkaDecoderFile);
             EnsureResource("Assets/Dependencies/radadec.exe", RadaDecoderFile);
             EnsureVgmStream();
