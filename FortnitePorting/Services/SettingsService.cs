@@ -25,7 +25,10 @@ public partial class SettingsService : ObservableObject, IService
 
     public SettingsService()
     {
-        DirectoryPath.Create();
+		if (!DirectoryPath.Exists)
+			DirectoryPath.Create();
+		if (!FilePath.Exists)
+			File.Create(FilePath.FullName);
     }
     
     public void Load()
@@ -61,8 +64,6 @@ public partial class SettingsService : ObservableObject, IService
     {
         try
         {
-			if (!FilePath.Exists)
-				FilePath.Create();
             File.WriteAllText(FilePath.FullName, JsonConvert.SerializeObject(this, Formatting.Indented));
         }
         catch (Exception e)
